@@ -5,7 +5,7 @@ namespace megaDesk_Web.Models
 {
     public class Desk
     {
-        public int DeskQuoteID { get; set; }
+        public int DeskID { get; set; }
         
     }
 }

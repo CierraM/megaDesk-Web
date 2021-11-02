@@ -5,7 +5,7 @@ namespace megaDesk_Web.Models
 {
     public class DesktopMaterial
     {
-        public int DeskQuoteID { get; set; }
+        public int DesktopMaterialId { get; set; }
         
     }
 }
