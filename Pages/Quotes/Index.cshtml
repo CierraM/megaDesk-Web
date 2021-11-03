@@ -1,0 +1,60 @@
+@page
+@model megaDesk_Web.Pages.Quotes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Delivery)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DeskQuote) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desk.DeskId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delivery.DeliveryId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DeskQuoteID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DeskQuoteID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DeskQuoteID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

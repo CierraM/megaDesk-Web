@@ -1,0 +1,72 @@
+@page
+@model megaDesk_Web.Pages.Quotes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* Required Inputs and Input Constraints:
+customer full name
+size of desk in width (minimum 24 inches and maximum 96 inches)
+size of the desk in depth (minimum 12 inches and maximum of 48 inches)
+number of drawers ( zero to seven drawers maximum)
+desktop surface material (laminate, oak, rosewood, veneer, or pine)
+rush order options of 3, 5, or 7 days. The normal production time is 14 days. *@
+
+<h1>Create</h1>
+
+<h4>DeskQuote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* Customer Name *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.CustomerName" class="control-label"></label>
+                <input asp-for="DeskQuote.CustomerName" class="form-control" />
+                <span asp-validation-for="DeskQuote.CustomerName" class="text-danger"></span>
+            </div>
+            @* Desk Width *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Width" class="text-danger"></span>
+            </div>
+            @* Desk Depth *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Depth" class="text-danger"></span>
+            </div>
+            @* Number of drawers *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.NumberOfDrawers" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.NumberOfDrawers" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.NumberOfDrawers" class="text-danger"></span>
+            </div>
+            @* Surface Material *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.DesktopMaterial" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.DesktopMaterial" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.DesktopMaterial" class="text-danger"></span>
+            </div>
+            @* Delivery Options *@
+            <div class="form-group">
+                <label asp-for="DeskQuote.DeliveryId" class="control-label"></label>
+                <select asp-for="DeskQuote.DeliveryId" class ="form-control" asp-items="ViewBag.DeliveryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
