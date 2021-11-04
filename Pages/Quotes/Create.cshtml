@@ -15,7 +15,7 @@ rush order options of 3, 5, or 7 days. The normal production time is 14 days. *@
 
 <h1>Create</h1>
 
-<h4>DeskQuote</h4>
+<h4>Desk Quote</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,27 +29,26 @@ rush order options of 3, 5, or 7 days. The normal production time is 14 days. *@
             </div>
             @* Desk Width *@
             <div class="form-group">
-                <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
-                <span asp-validation-for="DeskQuote.Desk.Width" class="text-danger"></span>
+                <label asp-for="Desk.Width" class="control-label"></label>
+                <input asp-for="Desk.Width" class="form-control" type="number" min="24" max="96"/>
+                <span asp-validation-for="Desk.Width" class="text-danger"></span>
             </div>
             @* Desk Depth *@
             <div class="form-group">
-                <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
-                <span asp-validation-for="DeskQuote.Desk.Depth" class="text-danger"></span>
+                <label asp-for="Desk.Depth" class="control-label"></label>
+                <input asp-for="Desk.Depth" class="form-control" type="number" min="12" max="48"/>
+                <span asp-validation-for="Desk.Depth" class="text-danger"></span>
             </div>
             @* Number of drawers *@
             <div class="form-group">
-                <label asp-for="DeskQuote.Desk.NumberOfDrawers" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.NumberOfDrawers" class="form-control" />
-                <span asp-validation-for="DeskQuote.Desk.NumberOfDrawers" class="text-danger"></span>
+                <label asp-for="Desk.NumberOfDrawers" class="control-label"></label>
+                <input asp-for="Desk.NumberOfDrawers" class="form-control" type="number" min="0" max="7" />
+                <span asp-validation-for="Desk.NumberOfDrawers" class="text-danger"></span>
             </div>
             @* Surface Material *@
             <div class="form-group">
-                <label asp-for="DeskQuote.Desk.DesktopMaterial" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.DesktopMaterial" class="form-control" />
-                <span asp-validation-for="DeskQuote.Desk.DesktopMaterial" class="text-danger"></span>
+                <label asp-for="Desk.DesktopMaterialId" class="control-label"></label>
+                <select asp-for="Desk.DesktopMaterialId" class ="form-control" asp-items="ViewBag.DesktopMaterialId"></select>
             </div>
             @* Delivery Options *@
             <div class="form-group">

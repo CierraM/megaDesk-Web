@@ -20,10 +20,15 @@ namespace megaDesk_Web.Pages.Quotes
 
         public IActionResult OnGet()
         {
-        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
-        ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
+        //for populating selects
+        ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "deliverySpeed");
+
+        ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "MaterialName");
             return Page();
         }
+        //binding: makes it so the stuff from the form automatically goes where we can access it
+        [BindProperty]
+        public Desk Desk { get; set; }
 
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
@@ -35,7 +40,16 @@ namespace megaDesk_Web.Pages.Quotes
             {
                 return Page();
             }
+            //Desk stuff
+            //save desk before adding it to the desk quote
+            _context.Desk.Add(Desk);
+    
+            //DeskQuote stuff
+            DeskQuote.QuoteDate = DateTime.Now;
 
+            DeskQuote.DeskId = Desk.DeskId;
+            //Add desk to desk quote
+            DeskQuote.calcPrice(_context);
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 

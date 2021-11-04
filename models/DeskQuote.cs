@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace megaDesk_Web.Models
 {
@@ -29,11 +30,14 @@ namespace megaDesk_Web.Models
         private int _drawersCost;
         private int _materialCost;
         private int _shippingCost;
-        private int _surfaceAreaIndex;
 
-        public void calcPrice() {
-            //calculate surface area from database?
+        public void calcPrice(MegaDeskWebContext context) {
+            // var surfaceMaterialPrices = context.DesktopMaterial
+            // .where(d => d.DesktopMaterialId == this.DesktopMaterialId);
 
+            //calculate surface area
+            _surfaceArea = this.Desk.Width * this.Desk.Depth;
+            _extraAreaCost = _surfaceArea - 1000;
             //calculate the drawers cost
             _drawersCost = this.Desk.NumberOfDrawers * _COST_PER_DRAWER;
 

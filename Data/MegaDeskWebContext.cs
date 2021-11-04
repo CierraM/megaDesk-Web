@@ -13,4 +13,7 @@ using megaDesk_Web.Models;
         }
 
         public DbSet<megaDesk_Web.Models.DeskQuote> DeskQuote { get; set; }
+        public DbSet<megaDesk_Web.Models.Desk> Desk { get; set; }
+        public DbSet<megaDesk_Web.Models.DesktopMaterial> DesktopMaterial { get; set; }
+        public DbSet<megaDesk_Web.Models.Delivery> Delivery { get; set; }
     }
