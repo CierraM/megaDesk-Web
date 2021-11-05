@@ -50,6 +50,7 @@ namespace megaDesk_Web.Pages.Quotes
 
             if (DeskQuote != null)
             {
+                
                 _context.DeskQuote.Remove(DeskQuote);
                 await _context.SaveChangesAsync();
             }

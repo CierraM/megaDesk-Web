@@ -31,22 +31,48 @@ namespace megaDesk_Web.Models
         private int _materialCost;
         private int _shippingCost;
 
-        public void calcPrice(MegaDeskWebContext context) {
-            // var surfaceMaterialPrices = context.DesktopMaterial
-            // .where(d => d.DesktopMaterialId == this.DesktopMaterialId);
+        public int calcPrice(MegaDeskWebContext context) {
+            var surfaceMaterialPrice = context.DesktopMaterial
+            .Where(d => d.DesktopMaterialId == this.Desk.DesktopMaterialId)
+            .FirstOrDefault();
+
+            _materialCost = surfaceMaterialPrice.Price;
 
             //calculate surface area
             _surfaceArea = this.Desk.Width * this.Desk.Depth;
-            _extraAreaCost = _surfaceArea - 1000;
+
+            int _costPerSquareInch = 1;
+
+            if (_surfaceArea > 1000){
+                _extraAreaCost = _surfaceArea * _costPerSquareInch;
+            }
+
+            if (_surfaceArea < 1000) {
+            _extraAreaCost = 0;
+            } else {
+                _extraAreaCost = _surfaceArea - 1000;
+            }
             //calculate the drawers cost
             _drawersCost = this.Desk.NumberOfDrawers * _COST_PER_DRAWER;
 
-            //calculate the materials cost
-
             //calculate shipping price
+            var shippingPrice = context.Delivery
+            .Where(d => d.DeliveryId == this.DeliveryId)
+            .FirstOrDefault();
+
+            //figure out price by size of desktop
+            if (_surfaceArea < 1000) {
+                _shippingCost = shippingPrice.lessThan1000Price;
+            } else if (_surfaceArea <= 2000) {
+                _shippingCost = shippingPrice.lessThan2000Price;
+            } else {
+                _shippingCost = shippingPrice.moreThan2000Price;
+            }
+
+            
 
             //calculate Total
-            this.Price = _BASE_DESK_PRICE + _extraAreaCost + _materialCost + _shippingCost + _drawersCost;
+            return  _BASE_DESK_PRICE + _extraAreaCost + _materialCost + _shippingCost + _drawersCost;
 
         }
         

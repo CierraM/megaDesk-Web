@@ -12,6 +12,7 @@ namespace megaDesk_Web.Models
         public  int NumberOfDrawers { get; set; }
         
                
+        [Display(Name = "Desktop Material")]
         public int DesktopMaterialId { get; set; }
         public int SurfaceArea { get; set; }
         

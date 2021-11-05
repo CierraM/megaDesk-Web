@@ -37,8 +37,9 @@ namespace megaDesk_Web.Pages.Quotes
             {
                 return NotFound();
             }
-           ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "DeliveryId");
+           ViewData["DeliveryId"] = new SelectList(_context.Set<Delivery>(), "DeliveryId", "deliverySpeed");
            ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
+           ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "MaterialName");
             return Page();
         }
 
@@ -50,8 +51,10 @@ namespace megaDesk_Web.Pages.Quotes
             {
                 return Page();
             }
-
+            DeskQuote.Price = DeskQuote.calcPrice(_context);
+            // _context.DeskQuote.Add(DeskQuote);
             _context.Attach(DeskQuote).State = EntityState.Modified;
+            // await _context.SaveChangesAsync();
 
             try
             {
@@ -68,6 +71,7 @@ namespace megaDesk_Web.Pages.Quotes
                     throw;
                 }
             }
+            
 
             return RedirectToPage("./Index");
         }

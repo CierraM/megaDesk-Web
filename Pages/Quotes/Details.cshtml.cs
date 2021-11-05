@@ -29,6 +29,7 @@ namespace megaDesk_Web.Pages.Quotes
 
             DeskQuote = await _context.DeskQuote
                 .Include(d => d.Delivery)
+                .Include(d => d.Desk.DesktopMaterial)
                 .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteID == id);
 
             if (DeskQuote == null)
