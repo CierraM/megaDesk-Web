@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week08/megaDesk-Web/megaDesk-Web.csproj": {}
+    "/Users/aaronhathaway/Desktop/School/Fall 2021/cit365/week 08/megaDesk-Web/megaDesk-Web.csproj": {}
   },
   "projects": {
-    "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week08/megaDesk-Web/megaDesk-Web.csproj": {
+    "/Users/aaronhathaway/Desktop/School/Fall 2021/cit365/week 08/megaDesk-Web/megaDesk-Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week08/megaDesk-Web/megaDesk-Web.csproj",
+        "projectUniqueName": "/Users/aaronhathaway/Desktop/School/Fall 2021/cit365/week 08/megaDesk-Web/megaDesk-Web.csproj",
         "projectName": "megaDesk-Web",
-        "projectPath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week08/megaDesk-Web/megaDesk-Web.csproj",
-        "packagesPath": "/Users/4cibe/.nuget/packages/",
-        "outputPath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week08/megaDesk-Web/obj/",
+        "projectPath": "/Users/aaronhathaway/Desktop/School/Fall 2021/cit365/week 08/megaDesk-Web/megaDesk-Web.csproj",
+        "packagesPath": "/Users/aaronhathaway/.nuget/packages/",
+        "outputPath": "/Users/aaronhathaway/Desktop/School/Fall 2021/cit365/week 08/megaDesk-Web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/4cibe/.nuget/NuGet/NuGet.Config"
+          "/Users/aaronhathaway/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
